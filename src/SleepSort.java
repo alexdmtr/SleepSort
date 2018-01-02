@@ -1,5 +1,3 @@
-package com.company;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,10 +8,10 @@ public class SleepSort {
     List<Thread> threads = new ArrayList<>();
     List<Integer> solution = new ArrayList<>();
     for (int i = 1; i <= COUNT_THREADS; i++) {
-      class MyThread extends Thread {
+      class IntegerElementDelayThread extends Thread {
         private final int threadNumber;
 
-        private MyThread(int threadNumber) {
+        private IntegerElementDelayThread(int threadNumber) {
           super();
           this.threadNumber = threadNumber;
         }
@@ -29,7 +27,7 @@ public class SleepSort {
 
       }
 
-      threads.add(new MyThread(array.get(i-1)));
+      threads.add(new IntegerElementDelayThread(array.get(i-1)));
     }
 
     threads.forEach(Thread::start);
